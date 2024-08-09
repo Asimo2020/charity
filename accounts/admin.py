@@ -45,6 +45,6 @@ class ChangeUserAdmin(admin.ModelAdmin):
         }),  
         ('Important dates', {"fields": ("last_login", "date_joined")}),  
     )  
-
+    filter_horizontal = ('groups', 'user_permissions')
 admin.site.register(User, ChangeUserAdmin)
 
