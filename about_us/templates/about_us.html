@@ -1,0 +1,18 @@
+{% extends "about_us_base.html" %}  
+
+{% block team_members %}  
+    <h2 class="text-center my-5">نیکوکاران و اعضای خیریه‌ها</h2>  
+    <div class="container">  
+        <div class="d-flex flex-wrap justify-content-around">  
+            {% if users %}  
+                <div>  
+                    {% for user in users %}  
+                        {{ user.get_full_name }}{% if not forloop.last %} {% endif %}  
+                    {% endfor %}  
+                </div>  
+            {% else %}  
+                <div>بخشی به نام نیکوکاران و اعضای خیریه‌ها وجود دارد که خالی می‌باشد.</div>  
+            {% endif %}  
+        </div>  
+    </div>  
+{% endblock %}

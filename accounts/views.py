@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render 
+from accounts.models import User
 
-# Create your views here.
+def about_us(request): 
+    users = User.objects.all() 
+    return render(request, 'about_us.html', {'users': users})
