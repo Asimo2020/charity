@@ -41,9 +41,9 @@ DJANGO_DEFAULT_APPS = [
     "django.contrib.staticfiles",
     "corsheaders",
      #local
-    "accounts",
-    "charities",
-    "about_us",
+    # "accounts",
+    # "charities",
+    # "about_us",
 ]
 
 THIRD_PARTY_APPS = [
