@@ -1,7 +1,23 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings  
+from django.db import models
+from accounts.models import User
 
+class TaskManager(models.Manager):  
+
+    def related_tasks_to_charity(self, user):  
+        return self.filter(charity__user=user)  
+
+    def related_tasks_to_benefactor(self, user):  
+        return self.filter(benefactor=user)  
+
+    def all_related_tasks_to_user(self, user):  
+        return self.filter(  
+            models.Q(benefactor=user) |   
+            models.Q(charity__user=user) |   
+            models.Q(status='Pending')  
+        )  
 class Benefactor(models.Model):
     id = models.AutoField(primary_key=True)
     # user = models.OneToOneField(User, on_delete=models.CASCADE)
