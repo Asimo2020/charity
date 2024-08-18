@@ -1,6 +1,5 @@
-from django.db import models
-from django.contrib.auth.models import User
-from django.conf import settings  
+
+from django.conf import settings
 from django.db import models
 from accounts.models import User
 
@@ -66,5 +65,6 @@ class Task(models.Model):
     ]  
     state = models.CharField(max_length=1,choices=STATUS_CHOICES,default='P',)  
     title = models.CharField(max_length= 60)
-    def __str__(self):  
-        return self.charity  
+    objects = TaskManager()
+    def __str__(self):
+        return f"Task for {self.charity.name} assigned to {self.assigned_benefactor.user.username if self.assigned_benefactor else 'None'}"

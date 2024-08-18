@@ -1,5 +1,3 @@
-from django.shortcuts import render 
-from accounts.models import User
 from rest_framework import generics
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -15,6 +13,3 @@ class LogoutAPIView(APIView):
 
 class UserRegistration(generics.CreateAPIView):
     pass
-def about_us(request): 
-    users = User.objects.all() 
-    return render(request, 'about_us.html', {'users': users})
