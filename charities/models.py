@@ -19,8 +19,8 @@ class TaskManager(models.Manager):
         )  
 class Benefactor(models.Model):
     id = models.AutoField(primary_key=True)
-    # user = models.OneToOneField(User, on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     EXPERIENCE_CHOICES = [  
         (0, 'مبتدی'),  
         (1, 'متوسط'),     
@@ -40,8 +40,8 @@ class Benefactor(models.Model):
 
 class Charity(models.Model):
     id = models.AutoField(primary_key=True)
-    # user = models.OneToOneField(User, on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     reg_number = models.CharField(max_length=10)
     def __str__(self):  

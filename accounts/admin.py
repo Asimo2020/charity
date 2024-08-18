@@ -3,10 +3,7 @@ from django.contrib.auth.admin import UserAdmin as DefaultUserAdmin
 from accounts.models import User
 
 @admin.register(User)
-class UserAdmin(DefaultUserAdmin):
-    pass
-
-class ChangeUserAdmin(admin.ModelAdmin):  
+class UserAdmin(DefaultUserAdmin):  
     search_fields = ('username', 'email', 'first_name', 'last_name') 
     list_filter = ('gender', 'is_staff', 'is_superuser', 'is_active') 
     ordering = ['username']  
@@ -18,5 +15,5 @@ class ChangeUserAdmin(admin.ModelAdmin):
         ('Permissions',{"fields": ( "is_active","is_staff","is_superuser", "groups","user_permissions",),}),  
     ('Important dates',{"fields": ("last_login", "date_joined")}),)  
     filter_horizontal = ('groups', 'user_permissions')
-admin.site.register(User, ChangeUserAdmin)
+# admin.site.register(User, ChangeUserAdmin)
 
